@@ -18,11 +18,19 @@ public class NPCBehavior : MonoBehaviour
     public bool haspizza;
     public bool haswings;
     public bool hastacos;
+    public int whichMusic;
+    public bool wantsMusic1;
+    public bool wantsMusic2;
+    public bool wantsMusic3;
+    public int whichConvo;
+    public bool wantsConvo1;
+    public bool wantsConvo2;
+    public bool wantsConvo3;
 
     public void RandomState()
     {
         //change to 1-3 for full launch
-       npcState =  Random.Range(1, 1);
+       npcState =  Random.Range(2, 2);
         if (npcState == 1)
         {
             needsFood = true;
@@ -43,10 +51,36 @@ public class NPCBehavior : MonoBehaviour
         if (npcState == 2)
         {
             needsConvo = true;
+            whichConvo = Random.Range(1, 3);
+            if (whichConvo == 1)
+            {
+                wantsConvo1 = true;
+            }
+            if (whichConvo == 2)
+            {
+                wantsConvo2 = true;
+            }
+            if (whichConvo == 3)
+            {
+                wantsConvo3 = true;
+            }
         }
         if (npcState == 3)
         {
             needsMusic = true;
+            whichMusic = Random.Range(1, 3);
+            if (whichMusic == 1)
+            {
+                wantsMusic1 = true;
+            }
+            if (whichMusic == 2)
+            {
+                wantsMusic2 = true;
+            }
+            if (whichMusic == 3)
+            {
+                wantsMusic3 = true;
+            }
         }
         if (npcState == 0)
         {

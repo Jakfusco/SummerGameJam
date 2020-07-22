@@ -54,7 +54,48 @@ public class Buttons : MonoBehaviour
         {
             npcBehavior.haspizza = true;
         }
-
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 25;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo1 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo2 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo3 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
+        {
+            playerInteraction.score = playerInteraction.score + 25;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic1 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic2 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic3 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
     }
     void BlueButtonClick()
     {
@@ -83,6 +124,48 @@ public class Buttons : MonoBehaviour
         {
             npcBehavior.haswings = true;
         }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo1 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 25;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo2 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo3 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
+        {
+            playerInteraction.score = playerInteraction.score + 25;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic2 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic1 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic3 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
     }
     void GreenButtonClick()
     {
@@ -110,6 +193,48 @@ public class Buttons : MonoBehaviour
         if (playerInteraction.triggeringTable == true)
         {
             npcBehavior.hastacos = true;
+        }
+        if(npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo1 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo2 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
+        {
+            playerInteraction.score = playerInteraction.score + 25;
+            npcBehavior.needsConvo = false;
+            npcBehavior.wantsConvo3 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
+        {
+            playerInteraction.score = playerInteraction.score + 25;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic3 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic2 = false;
+            StartCoroutine(cd.StartCountdown());
+        }
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
+        {
+            playerInteraction.score = playerInteraction.score + 10;
+            npcBehavior.needsMusic = false;
+            npcBehavior.wantsMusic1 = false;
+            StartCoroutine(cd.StartCountdown());
         }
     } 
 }

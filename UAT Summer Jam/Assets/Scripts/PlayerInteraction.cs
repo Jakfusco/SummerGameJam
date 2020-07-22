@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public bool triggeringMusic;
     public bool triggeringTable;
     private GameObject triggeringNpc;
     private bool triggering;
@@ -15,14 +16,17 @@ public class PlayerInteraction : MonoBehaviour
     public Text redButtonText;
     public Text blueButtonText;
     public Text greenButtonText;
+    public GameObject npcScript;
+    public NPCBehavior npcBehavior;
     void Start()
     {
         mouseControls = GetComponent<Mouse_Look>();
+        npcBehavior = npcScript.GetComponent<NPCBehavior>();
     }
 
     void Update()
     {
-        if (triggering || triggeringTable == true)
+        if (triggering || triggeringTable == true || triggeringMusic == true)
         {
             foodButtons.SetActive(true);
             Cursor.visible = true;
@@ -45,6 +49,14 @@ public class PlayerInteraction : MonoBehaviour
             blueButtonText.text = "Give Wings";
             greenButtonText.text = "Give Tacos";
         }
+        if (other.tag == "NPC" && npcBehavior.needsConvo == true)
+        {
+            triggering = true;
+            triggeringNpc = other.gameObject;
+            redButtonText.text = "Convo1";
+            blueButtonText.text = "Convo2";
+            greenButtonText.text = "Convo3";
+        }
         if (other.tag == "Table")
         {
             triggeringTable = true;
@@ -52,6 +64,14 @@ public class PlayerInteraction : MonoBehaviour
             redButtonText.text = "Grab Pizza";
             blueButtonText.text = "Grab Wings";
             greenButtonText.text = "Grab Tacos";
+        }
+        if (other.tag == "Music")
+        {
+            triggeringMusic = true;
+            triggeringNpc = other.gameObject;
+            redButtonText.text = "Music1";
+            blueButtonText.text = "Music2";
+            greenButtonText.text = "Music3";
         }
     }
     void OnTriggerExit (Collider other)
@@ -64,6 +84,11 @@ public class PlayerInteraction : MonoBehaviour
         if (other.tag == "Table")
         {
             triggeringTable = false;
+            triggeringNpc = null;
+        }
+        if (other.tag == "Music")
+        {
+            triggeringMusic = false;
             triggeringNpc = null;
         }
     }

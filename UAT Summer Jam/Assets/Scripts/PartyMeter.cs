@@ -19,28 +19,20 @@ public class PartyMeter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "NPC")
+        if (other.gameObject.tag == "NPC")
         {
+            Debug.Log("New attendee");
             peopleAttending = peopleAttending + 1;
-            Attendance();
         }
     }
 
-    void Attendance()
+    private void Update()
     {
-        if(peopleAttending >= 1)
+        while (peopleAttending >= 1 & needFulfilled == true)
         {
-            if (needFulfilled == false)
-            {
-                partyMeter = partyMeter - (peopleAttending * 1 * Time.deltaTime);
-                Debug.Log(partyMeter);
-            }
-
-            else if (needFulfilled == true)
-            {
-                partyMeter = partyMeter + 5;
-                Debug.Log(partyMeter + "huh");
-            }
+            partyMeter = partyMeter + 5;
+            Debug.Log(partyMeter + "huh");
         }
     }
+
 }

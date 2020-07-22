@@ -1,9 +1,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":false,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":8.84481430053711,"y":-3.68396258354187,"z":13.173181533813477},"rotation":{"x":-0.1553453505039215,"y":0.6787081956863403,"z":-0.15021274983882905,"w":-0.701906144618988},"size":6.141659736633301,"orthographic":false}
+=======
+>>>>>>> Needs
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":false,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":4.265239715576172,"y":4.366191387176514,"z":2.4526548385620119},"rotation":{"x":-0.011810769326984883,"y":0.6346294283866882,"z":-0.009740374982357026,"w":-0.7727126479148865},"size":18.26058006286621,"orthographic":false}
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":false,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":960.0000610351563,"y":735.0,"z":0.0},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":660.4330444335938,"orthographic":true}
 >>>>>>> develop
+<<<<<<< HEAD
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":false,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":238.62164306640626,"y":91.00942993164063,"z":222.0},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":1739.3507080078125,"orthographic":true}
 >>>>>>> PartyMeter
+=======
+>>>>>>> master
+>>>>>>> Needs

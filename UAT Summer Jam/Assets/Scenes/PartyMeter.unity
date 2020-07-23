@@ -510,8 +510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470c11687116fd54697ec32e0e748fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partyMeter: 0
-  attenders: {fileID: 0}
+  partyMeter: 100
+  attenders: {fileID: 953620853}
   triggerBox: {fileID: 1967967934}
   needFulfilled: 0
   peopleAttending: 0

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PartyMeter : MonoBehaviour
 {
-    [SerializeField] private float partyMeter;
+    [SerializeField] [Range(0,200)] private float partyMeter;
 
     [SerializeField] private GameObject attenders;
     [SerializeField] private Collider triggerBox;
 
     [SerializeField] private bool needFulfilled;
     [SerializeField] private int peopleAttending;
+   //[SerializeField] private int countdownTime = 1;
 
     private void Start()
     {
         partyMeter = 100;
+        StartCoroutine(StartCountdown());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,13 +28,24 @@ public class PartyMeter : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
-        while (peopleAttending >= 1 & needFulfilled == true)
+
+        
+    }
+    public IEnumerator StartCountdown()
+    {
+        Debug.Log("Timer is working");
+        
+        while (peopleAttending >= 1 && needFulfilled == false)
         {
-            partyMeter = partyMeter + 5;
-            Debug.Log(partyMeter + "huh");
+            Debug.Log(partyMeter + " huh");
+            yield return new WaitForSeconds(1f);
+           partyMeter = partyMeter - 1;
+           
+            
         }
     }
+
 
 }

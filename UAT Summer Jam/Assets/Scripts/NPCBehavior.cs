@@ -30,11 +30,11 @@ public class NPCBehavior : MonoBehaviour
     public void RandomState()
     {
         //change to 1-3 for full launch
-       npcState =  Random.Range(2, 2);
+       npcState =  Random.Range(1, 4);
         if (npcState == 1)
         {
             needsFood = true;
-            whichFood = Random.Range(1, 3);
+            whichFood = Random.Range(1, 4);
             if (whichFood == 1)
             {
                 wantspizza = true;
@@ -51,7 +51,7 @@ public class NPCBehavior : MonoBehaviour
         if (npcState == 2)
         {
             needsConvo = true;
-            whichConvo = Random.Range(1, 3);
+            whichConvo = Random.Range(1, 4);
             if (whichConvo == 1)
             {
                 wantsConvo1 = true;
@@ -68,7 +68,7 @@ public class NPCBehavior : MonoBehaviour
         if (npcState == 3)
         {
             needsMusic = true;
-            whichMusic = Random.Range(1, 3);
+            whichMusic = Random.Range(1, 4);
             if (whichMusic == 1)
             {
                 wantsMusic1 = true;

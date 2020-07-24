@@ -39,6 +39,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsFood = false;
             StartCoroutine(cd.StartCountdown());
             npcBehavior.haspizza = false;
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && npcBehavior.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && npcBehavior.hastacos == true)
         {
@@ -49,9 +50,11 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsFood = false;
             StartCoroutine(cd.StartCountdown());
             npcBehavior.haspizza = false;
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (playerInteraction.triggeringTable == true)
         {
+            AudioManager.instance.Play("Pickup");
             npcBehavior.haspizza = true;
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
@@ -60,6 +63,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo1 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
         {
@@ -67,6 +71,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo2 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
         {
@@ -74,6 +79,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo3 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
         {
@@ -81,6 +87,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic1 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Techno");
+            AudioManager.instance.Stop("Rock");
+            AudioManager.instance.Stop("HipHop");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
         {
@@ -88,6 +97,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic2 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Techno");
+            AudioManager.instance.Stop("Rock");
+            AudioManager.instance.Stop("HipHop");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
         {
@@ -95,6 +107,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic3 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Techno");
+            AudioManager.instance.Stop("Rock");
+            AudioManager.instance.Stop("HipHop");
         }
     }
     void BlueButtonClick()
@@ -109,6 +124,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsFood = false;
             StartCoroutine(cd.StartCountdown());
             npcBehavior.haswings = false;
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && npcBehavior.haspizza == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && npcBehavior.hastacos == true)
         {
@@ -119,10 +135,12 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsFood = false;
             StartCoroutine(cd.StartCountdown());
             npcBehavior.haswings = false;
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (playerInteraction.triggeringTable == true)
         {
             npcBehavior.haswings = true;
+            AudioManager.instance.Play("Pickup");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
         {
@@ -130,6 +148,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo1 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
         {
@@ -137,6 +156,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo2 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
         {
@@ -144,6 +164,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo3 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
         {
@@ -151,6 +172,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic2 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Play("Rock");
+            AudioManager.instance.Stop("HipHop");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
         {
@@ -158,6 +182,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic1 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Play("Rock");
+            AudioManager.instance.Stop("HipHop");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
         {
@@ -165,6 +192,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic3 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Play("Rock");
+            AudioManager.instance.Stop("HipHop");
         }
     }
     void GreenButtonClick()
@@ -179,6 +209,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsFood = false;
             StartCoroutine(cd.StartCountdown());
             npcBehavior.hastacos = false;
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && npcBehavior.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && npcBehavior.haspizza == true)
         {
@@ -189,10 +220,12 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsFood = false;
             StartCoroutine(cd.StartCountdown());
             npcBehavior.hastacos = false;
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (playerInteraction.triggeringTable == true)
         {
             npcBehavior.hastacos = true;
+            AudioManager.instance.Play("Pickup");
         }
         if(npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
         {
@@ -200,6 +233,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo1 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
         {
@@ -207,6 +241,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo2 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
         {
@@ -214,6 +249,7 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsConvo = false;
             npcBehavior.wantsConvo3 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Play("Click");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
         {
@@ -221,6 +257,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic3 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Stop("Rock");
+            AudioManager.instance.Play("HipHop");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
         {
@@ -228,6 +267,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic2 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Stop("Rock");
+            AudioManager.instance.Play("HipHop");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
         {
@@ -235,6 +277,9 @@ public class Buttons : MonoBehaviour
             npcBehavior.needsMusic = false;
             npcBehavior.wantsMusic1 = false;
             StartCoroutine(cd.StartCountdown());
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Stop("Rock");
+            AudioManager.instance.Play("HipHop");
         }
     } 
 }

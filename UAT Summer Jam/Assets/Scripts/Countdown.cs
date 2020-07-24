@@ -26,13 +26,9 @@ public class Countdown : MonoBehaviour
     }
     private void Update()
     {
-        if (npcBehavior.needsConvo == false && countdownTime == 0 || npcBehavior.needsFood == false && countdownTime == 0 || npcBehavior.needsMusic == false && countdownTime == 0)
+        if (npcBehavior.needsConvo == false && countdownTime == 0 && npcBehavior.needsFood == false && countdownTime == 0 && npcBehavior.needsMusic == false && countdownTime == 0)
         {
             StartCoroutine(StartCountdown());
-        }
-        else
-        {
-            
         }
     }
 

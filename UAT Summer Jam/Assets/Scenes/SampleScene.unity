@@ -317,13 +317,13 @@ MonoBehaviour:
   triggeringTable: 0
   foodButtons: {fileID: 1777352375}
   mouseControls: {fileID: 0}
+  theHealth: 100
+  score: 0
   redButtonText: {fileID: 2054311767}
   blueButtonText: {fileID: 180763862}
   greenButtonText: {fileID: 252986855}
   npcScript: {fileID: 305404625}
   npcBehavior: {fileID: 0}
-  designerScript: {fileID: 1179753083}
-  designerChanges: {fileID: 0}
 --- !u!1 &180763860
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +910,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 50fc8b1b615ba9c48a488f9bf64cb250, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1574,8 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb5d27386219df4e85c5d805d1dadb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designerScript: {fileID: 1179753083}
-  designerChanges: {fileID: 1179753084}
+  mouseSensitiviy: 100
   playerBody: {fileID: 175312029}
 --- !u!1 &1003057027
 GameObject:
@@ -2500,11 +2499,6 @@ MonoBehaviour:
   wantsConvo1: 0
   wantsConvo2: 0
   wantsConvo3: 0
-  countdownTime: 1
-  player: {fileID: 175312027}
-  target: {fileID: 175312029}
-  designerScript: {fileID: 1179753083}
-  designerChanges: {fileID: 0}
 --- !u!1 &1571679664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,8 +3436,6 @@ MonoBehaviour:
   playerScript: {fileID: 175312027}
   playerInteraction: {fileID: 0}
   cdScript: {fileID: 305404625}
-  designerScript: {fileID: 1179753083}
-  designerChanges: {fileID: 0}
   cd: {fileID: 0}
   m_RedButton: {fileID: 726772627}
   m_BlueButton: {fileID: 1701321959}

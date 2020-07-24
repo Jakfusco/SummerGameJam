@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7258634745319645331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7258634745319645333}
+  - component: {fileID: 7258634745319645332}
+  m_Layer: 0
+  m_Name: Designer Changes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7258634745319645333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7258634745319645331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.0548, y: -15.369051, z: -26.84055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7258634745319645332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7258634745319645331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f855c10f4fda5b1439b9dd99c50d345a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  partyMeter: 100
+  redButtonFoodText: Give Pizza
+  blueButtonFoodText: Give Wings
+  greenButtonFoodText: Give Tacos
+  redButtonConversationText: Convo1
+  blueButtonConversationText: Convo2
+  greenButtonConversationText: Convo3
+  redButtonTableText: Grab Pizza
+  blueButtonTableText: Grab Wings
+  greenButtonTableText: Grab Tacos
+  redButtonMusicText: Music1
+  blueButtonMusicText: Music2
+  greenButtonMusicText: Music3
+  perfectPartyMeterIncrease: 25
+  okPartyMeterIncrease: 10
+  perfectScoreIncrease: 25
+  okScoreIncrease: 10
+  guestSpawnRate: 10
+  guestNeedsInterval: 10
+  partyMeterDecreaseRate: 1
+  mouseSensitivity: 100

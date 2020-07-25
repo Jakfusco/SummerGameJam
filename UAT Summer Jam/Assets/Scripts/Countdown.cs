@@ -1,38 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    public int countdownTime;
+    public GameObject designerScript;
+    public DesignerChanges designerChanges;
+    //public int countdownTime;
     public GameObject npcScript;
     public NPCBehavior npcBehavior;
     void Start()
     {
-        StartCoroutine(StartCountdown());
+        //StartCoroutine(StartCountdown());
         npcBehavior = npcScript.GetComponent<NPCBehavior>();
+        designerChanges = designerScript.GetComponent<DesignerChanges>();
+        //countdownTime = designerChanges.guestNeedsInterval;
+        InvokeRepeating("GuestNeeds", 0, designerChanges.guestSpawnRate);
     }
-    public IEnumerator StartCountdown()
-    {
-        while (countdownTime > 0)
-        {
-            yield return new WaitForSeconds(1f);
-            countdownTime--;
-            Debug.Log("" + countdownTime);
-        }
-        npcBehavior.RandomState();
-        Debug.Log("Timer is working");
-        countdownTime = 10;
-    }
-    private void Update()
-    {
-        if (npcBehavior.needsConvo == false && countdownTime == 0 || npcBehavior.needsFood == false && countdownTime == 0 || npcBehavior.needsMusic == false && countdownTime == 0)
-        {
-            StartCoroutine(StartCountdown());
-        }
-        else
-        {
+    //public IEnumerator StartCountdown()
+   // {
+     //  while (designerChanges.guestNeedsInterval > 0)
+     //  {
+     //       yield return new WaitForSeconds(1f);
+       //     designerChanges.guestNeedsInterval--;
+       //     Debug.Log("" + designerChanges.guestNeedsInterval);
+     // }
+     //  npcBehavior.RandomState();
+     //   Debug.Log("Timer is working");
+     //  designerChanges.guestNeedsInterval = designerChanges.guestNeedsReset;
+    //}
+    //private void Update()
+   //{
+       // if (npcBehavior.needsConvo && npcBehavior.needsFood && npcBehavior.needsMusic && designerChanges.guestNeedsInterval == 0)
+      //  {
+            //StartCoroutine(StartCountdown());
+
+        //}
+       // else
+       // {
             
+       // }
+  //  }
+    void GuestNeeds()
+    {
+        if (npcBehavior.npcState == 0)
+        {
+            npcBehavior.RandomState();
+            Debug.Log("This is totally working");
         }
     }
 

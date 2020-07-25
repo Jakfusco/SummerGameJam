@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class NPCSpawning : MonoBehaviour
 {
+    public GameObject designerScript;
+    public DesignerChanges designerChanges;
     public GameObject nPC;
     public Sprite[] partyGuests;
     public int guestRandomizer;
-    public GameObject designerScript;
-    public DesignerChanges designerChanges;
 
     void Start()
     {

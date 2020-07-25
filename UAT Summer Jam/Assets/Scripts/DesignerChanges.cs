@@ -5,7 +5,7 @@ using UnityEngine;
 public class DesignerChanges : MonoBehaviour
 {
     public int score;
-    [Range(0, 200)] public int partyMeter;
+    [Range(0, 200)] public int partyMeter = 100;
     public string redButtonFoodText = "Give Pizza";
     public string blueButtonFoodText = "Give Wings";
     public string greenButtonFoodText = "Give Tacos";
@@ -24,7 +24,9 @@ public class DesignerChanges : MonoBehaviour
     public int okScoreIncrease = 10;
     public int guestSpawnRate = 10;
     public int guestNeedsInterval = 10;
-    public float partyMeterDecreaseRate = 1;
+    public int guestNeedsReset = 10;
+    public int partyMeterDecreaseRate = 1;
+    public int partyMeterDecreaseSpeed = 1;
     public float mouseSensitivity = 100f;
 
 

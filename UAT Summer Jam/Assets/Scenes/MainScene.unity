@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 175312028}
   speed: 24
-  gravity: -19.62
+  gravity: -9.62
   jumpHeight: 6
   groundCheck: {fileID: 298178164}
   groundDistance: 0.4
@@ -313,17 +313,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfeff5ce43ae62488440b7ffa6b6e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
   triggeringMusic: 0
   triggeringTable: 0
   foodButtons: {fileID: 1777352375}
   mouseControls: {fileID: 0}
-  theHealth: 100
   score: 0
   redButtonText: {fileID: 2054311767}
   blueButtonText: {fileID: 180763862}
   greenButtonText: {fileID: 252986855}
   npcScript: {fileID: 305404625}
-  npcBehavior: {fileID: 0}
+  npcBehavior: {fileID: 305404628}
+  haspizza: 0
+  haswings: 0
+  hastacos: 0
 --- !u!1 &180763860
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +486,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252986853}
   m_CullTransparentMesh: 0
+--- !u!1 &279774276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 279774278}
+  - component: {fileID: 279774277}
+  m_Layer: 0
+  m_Name: CountDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &279774277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279774276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89987f274f230a448b7d4ca76da34095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
+  npcScript: {fileID: 305404625}
+  npcBehavior: {fileID: 305404628}
+--- !u!4 &279774278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279774276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -77.198975, y: -47.494263, z: -76.8864}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294609768
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +661,41 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 674828792827467955}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &305404626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305404625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148bfdf11650c4d4088bb5d1b9afbd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
+  npcScript: {fileID: 305404625}
+  npcBehavior: {fileID: 305404628}
+  playerScript: {fileID: 175312027}
+  playerInteraction: {fileID: 175312032}
+  cdScript: {fileID: 279774276}
+  cd: {fileID: 279774277}
+  m_RedButton: {fileID: 726772627}
+  m_BlueButton: {fileID: 1701321959}
+  m_GreenButton: {fileID: 2133143664}
+--- !u!114 &305404628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 674828792591270500, guid: a48b990e432cf8f42a25a3ffe39c6abc,
+    type: 3}
+  m_PrefabInstance: {fileID: 674828792827467955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305404625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5fb06ec1a2c4845a9a73af4ecd84ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317679278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,7 +1660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb5d27386219df4e85c5d805d1dadb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitiviy: 100
+  mouseSensitivity: 200
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
   playerBody: {fileID: 175312029}
 --- !u!1 &1003057027
 GameObject:
@@ -1716,8 +1804,10 @@ MonoBehaviour:
   perfectScoreIncrease: 25
   okScoreIncrease: 10
   guestSpawnRate: 10
-  guestNeedsInterval: 10
+  guestNeedsInterval: 20
+  guestNeedsReset: 10
   partyMeterDecreaseRate: 1
+  partyMeterDecreaseSpeed: 1
   mouseSensitivity: 100
 --- !u!4 &1179753085
 Transform:
@@ -1838,6 +1928,7 @@ GameObject:
   - component: {fileID: 1288683274}
   - component: {fileID: 1288683273}
   - component: {fileID: 1288683272}
+  - component: {fileID: 1288683277}
   m_Layer: 0
   m_Name: Music Box
   m_TagString: Music
@@ -1930,8 +2021,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288683277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288683271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0265f596489cd40b980268f3c1cbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RedButton: {fileID: 726772627}
+  m_BlueButton: {fileID: 1701321959}
+  m_GreenButton: {fileID: 2133143664}
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
+  npcScript: {fileID: 305404625}
+  npcBehavior: {fileID: 305404628}
+  playerScript: {fileID: 175312027}
+  playerInteraction: {fileID: 175312032}
 --- !u!1 &1300572746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6261465f6ab0012429a0884412d094f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
   nPC: {fileID: 305404625}
   partyGuests:
   - {fileID: 21300000, guid: e7b0421d5c3f4b44f860d0e31c2a01c4, type: 3}
@@ -2066,8 +2180,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e3fe83434047fb44baf25aa5ae6f4bac, type: 3}
   - {fileID: 21300000, guid: 9a110302f29fc444ebdc8a413b0d1fe7, type: 3}
   guestRandomizer: 0
-  designerScript: {fileID: 1179753083}
-  designerChanges: {fileID: 1179753084}
 --- !u!4 &1303371317
 Transform:
   m_ObjectHideFlags: 0
@@ -2451,7 +2563,7 @@ Transform:
   m_LocalScale: {x: 4, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1540226151
 BoxCollider:
@@ -2475,30 +2587,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540226146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5fb06ec1a2c4845a9a73af4ecd84ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 61f26cad412b50c42a6b28e387bd31f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needsFood: 0
-  whichFood: 0
-  wantspizza: 0
-  wantswings: 0
-  wantstacos: 0
-  wantsnoFood: 0
-  needsConvo: 0
-  needsMusic: 0
-  needsNothing: 0
-  npcState: 0
-  haspizza: 0
-  haswings: 0
-  hastacos: 0
-  whichMusic: 0
-  wantsMusic1: 0
-  wantsMusic2: 0
-  wantsMusic3: 0
-  whichConvo: 0
-  wantsConvo1: 0
-  wantsConvo2: 0
-  wantsConvo3: 0
+  m_RedButton: {fileID: 726772627}
+  m_BlueButton: {fileID: 1701321959}
+  m_GreenButton: {fileID: 2133143664}
+  playerScript: {fileID: 175312027}
+  playerInteraction: {fileID: 175312032}
 --- !u!1 &1571679664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,58 +3498,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789001709}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1797873340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1797873342}
-  - component: {fileID: 1797873341}
-  m_Layer: 0
-  m_Name: ButtonController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1797873341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797873340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148bfdf11650c4d4088bb5d1b9afbd37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcScript: {fileID: 305404625}
-  npcBehavior: {fileID: 0}
-  playerScript: {fileID: 175312027}
-  playerInteraction: {fileID: 0}
-  cdScript: {fileID: 305404625}
-  cd: {fileID: 0}
-  m_RedButton: {fileID: 726772627}
-  m_BlueButton: {fileID: 1701321959}
-  m_GreenButton: {fileID: 2133143664}
---- !u!4 &1797873342
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797873340}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9737926, y: -2.2342408, z: -3.747806}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798572147
 GameObject:
   m_ObjectHideFlags: 0

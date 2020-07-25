@@ -73,6 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5fb06ec1a2c4845a9a73af4ecd84ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
+  designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
   needsFood: 0
   whichFood: 0
   wantspizza: 0
@@ -94,13 +98,7 @@ MonoBehaviour:
   wantsConvo1: 0
   wantsConvo2: 0
   wantsConvo3: 0
-  countdownTime: 1
   player: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394, type: 3}
-  target: {fileID: 7846402375749045284, guid: eb89aea0240e313409e4aa081e370394, type: 3}
-  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
-    type: 3}
-  designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
-    type: 3}
 --- !u!114 &674828792591270507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,11 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89987f274f230a448b7d4ca76da34095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcScript: {fileID: 674828792591270498}
-  npcBehavior: {fileID: 674828792591270500}
-  designerScript: {fileID: 674828792591270498}
+  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
   designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
     type: 3}
+  countdownTime: 0
+  npcScript: {fileID: 674828792591270498}
+  npcBehavior: {fileID: 674828792591270500}
 --- !u!212 &674828792591270496
 SpriteRenderer:
   m_ObjectHideFlags: 0

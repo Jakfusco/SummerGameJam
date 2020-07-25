@@ -6,7 +6,9 @@ public class Mouse_Look : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float mouseSensitiviy = 100f;
+    public float mouseSensitivity = 250f;
+    public GameObject designerScript;
+    public DesignerChanges designerChanges;
 
     public Transform playerBody;
 
@@ -14,13 +16,14 @@ public class Mouse_Look : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        designerChanges = designerScript.GetComponent<DesignerChanges>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitiviy * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitiviy * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

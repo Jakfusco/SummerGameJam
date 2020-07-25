@@ -6,235 +6,180 @@ using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
+    public GameObject designerScript;
+    public DesignerChanges designerChanges;
     public GameObject npcScript;
     public NPCBehavior npcBehavior;
     public GameObject playerScript;
     public PlayerInteraction playerInteraction;
     public GameObject cdScript;
-    // public int[] foodStuffs;
     public Countdown cd;
     public Button m_RedButton, m_BlueButton, m_GreenButton;
+    public GameObject nPC;
+    public GameObject buttonParent;
+    // public Sprite[] partyGuests;
+    // public GameObject[] guests;
+    // public int guestRandomizer;
 
+    private void Awake()
+    {
+        m_RedButton = GameObject.Find("RedOption").GetComponent<Button>();
+        m_BlueButton = GameObject.Find("BlueOption").GetComponent<Button>();
+        m_GreenButton = GameObject.Find("GreenOption").GetComponent<Button>();
+        buttonParent = GameObject.Find("NPC Food Buttons");
+    }
     private void Start()
     {
+
         playerInteraction = playerScript.GetComponent<PlayerInteraction>();
         npcBehavior = npcScript.GetComponent<NPCBehavior>();
         cd = cdScript.GetComponent<Countdown>();
+        designerChanges = designerScript.GetComponent<DesignerChanges>();
+
+
+        // InvokeRepeating("NPCSpawn", 0, designerChanges.guestSpawnRate);
+
         m_RedButton.onClick.AddListener(RedButtonClick);
         m_BlueButton.onClick.AddListener(BlueButtonClick);
         m_GreenButton.onClick.AddListener(GreenButtonClick);
+        //buttonParent.SetActive(false);
     }
     
     
 
-    void RedButtonClick()
+    public void RedButtonClick()
     {
         //Debug.Log("you have clicked red");
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && npcBehavior.haspizza == true)
+        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && playerInteraction.haspizza == true)
         {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.whichFood = 0; 
-            npcBehavior.npcState = 0;
-            npcBehavior.wantspizza = false;
-            npcBehavior.needsFood = false;
-            StartCoroutine(cd.StartCountdown());
-            npcBehavior.haspizza = false;
+            PerfectFood();
         }
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && npcBehavior.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && npcBehavior.hastacos == true)
+        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && playerInteraction.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && playerInteraction.hastacos == true)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.whichFood = 0;
-            npcBehavior.npcState = 0;
-            npcBehavior.wantspizza = false;
-            npcBehavior.needsFood = false;
-            StartCoroutine(cd.StartCountdown());
-            npcBehavior.haspizza = false;
+            OkFood();
         }
-        if (playerInteraction.triggeringTable == true)
+
+        if (npcBehavior.wantsConvo1 == true)
         {
-            npcBehavior.haspizza = true;
+            PerfectConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
+        if (npcBehavior.wantsConvo2 == true)
         {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo1 = false;
-            StartCoroutine(cd.StartCountdown());
+            OkConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
+        if (npcBehavior.wantsConvo3 == true)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo2 = false;
-            StartCoroutine(cd.StartCountdown());
+            OkConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo3 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
-        {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic1 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic2 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic3 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
+
     }
-    void BlueButtonClick()
+    public void BlueButtonClick()
     {
         //Debug.Log("you have clicked blue");
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && npcBehavior.haswings == true)
+        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && playerInteraction.haswings == true)
         {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.whichFood = 0;
-            npcBehavior.npcState = 0;
-            npcBehavior.wantswings = false;
-            npcBehavior.needsFood = false;
-            StartCoroutine(cd.StartCountdown());
-            npcBehavior.haswings = false;
+            PerfectFood();
         }
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && npcBehavior.haspizza == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && npcBehavior.hastacos == true)
+        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && playerInteraction.haspizza == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && playerInteraction.hastacos == true)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.whichFood = 0;
-            npcBehavior.npcState = 0;
-            npcBehavior.wantswings = false;
-            npcBehavior.needsFood = false;
-            StartCoroutine(cd.StartCountdown());
-            npcBehavior.haswings = false;
+            OkFood();
         }
-        if (playerInteraction.triggeringTable == true)
+
+        if (npcBehavior.wantsConvo1 == true)
         {
-            npcBehavior.haswings = true;
+            OkConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
+        if (npcBehavior.wantsConvo2 == true)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo1 = false;
-            StartCoroutine(cd.StartCountdown());
+            PerfectConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
+        if (npcBehavior.wantsConvo3 == true)
         {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo2 = false;
-            StartCoroutine(cd.StartCountdown());
+            OkConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo3 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
-        {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic2 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic1 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic3 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
+
     }
-    void GreenButtonClick()
+    public void GreenButtonClick()
     {
         //Debug.Log("you have clicked green");
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && npcBehavior.hastacos == true)
+        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && playerInteraction.hastacos == true)
         {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.whichFood = 0;
-            npcBehavior.npcState = 0;
-            npcBehavior.wantstacos = false;
-            npcBehavior.needsFood = false;
-            StartCoroutine(cd.StartCountdown());
-            npcBehavior.hastacos = false;
+            PerfectFood();
         }
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && npcBehavior.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && npcBehavior.haspizza == true)
+        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && playerInteraction.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && playerInteraction.haspizza == true)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.whichFood = 0;
-            npcBehavior.npcState = 0;
-            npcBehavior.wantstacos = false;
-            npcBehavior.needsFood = false;
-            StartCoroutine(cd.StartCountdown());
-            npcBehavior.hastacos = false;
+            OkFood();
         }
-        if (playerInteraction.triggeringTable == true)
+
+        if (npcBehavior.wantsConvo1)
         {
-            npcBehavior.hastacos = true;
+            OkConversation();
         }
-        if(npcBehavior.npcState == 2 && npcBehavior.wantsConvo1 == true)
+        if (npcBehavior.wantsConvo2)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo1 = false;
-            StartCoroutine(cd.StartCountdown());
+            OkConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo2 == true)
+        if (npcBehavior.wantsConvo3)
         {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo2 = false;
-            StartCoroutine(cd.StartCountdown());
+
+            PerfectConversation();
         }
-        if (npcBehavior.npcState == 2 && npcBehavior.wantsConvo3 == true)
-        {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.needsConvo = false;
-            npcBehavior.wantsConvo3 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3)
-        {
-            playerInteraction.score = playerInteraction.score + 25;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic3 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic2 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1)
-        {
-            playerInteraction.score = playerInteraction.score + 10;
-            npcBehavior.needsMusic = false;
-            npcBehavior.wantsMusic1 = false;
-            StartCoroutine(cd.StartCountdown());
-        }
-    } 
+
+    }
+    //  public void NPCSpawn()
+    //  {
+
+    //   GameObject Clone;
+    //   Clone = (Instantiate(nPC)) as GameObject;
+
+    //  int i = Random.Range(0, partyGuests.Length);
+    //  Clone.GetComponent<SpriteRenderer>().sprite = partyGuests[i];
+
+    // }
+    public void PerfectConversation()
+    {
+        designerChanges.score += designerChanges.perfectScoreIncrease;
+        designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
+        npcBehavior.whichConvo = 0;
+        npcBehavior.npcState = 0;
+        npcBehavior.needsConvo = false;
+        npcBehavior.wantsConvo3 = false;
+        npcBehavior.wantsConvo1 = false;
+        npcBehavior.wantsConvo2 = false;
+        Debug.Log("PerfectButtonIsWorking");
+    }
+    public void OkConversation()
+    {
+        designerChanges.score += designerChanges.okScoreIncrease;
+        designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
+        npcBehavior.whichConvo = 0;
+        npcBehavior.npcState = 0;
+        npcBehavior.needsConvo = false;
+        npcBehavior.wantsConvo1 = false;
+        npcBehavior.wantsConvo3 = false;
+        npcBehavior.wantsConvo2 = false;
+        Debug.Log("OKButtonIsWorking");
+    }
+    public void PerfectFood()
+    {
+        designerChanges.score += designerChanges.perfectScoreIncrease;
+        designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
+        npcBehavior.whichFood = 0;
+        npcBehavior.npcState = 0;
+        npcBehavior.wantstacos = false;
+        npcBehavior.needsFood = false;
+        npcBehavior.wantspizza = false;
+        npcBehavior.wantswings = false;
+    }
+    public void OkFood()
+    {
+        designerChanges.score += designerChanges.okScoreIncrease;
+        designerChanges.partyMeter +=designerChanges.okPartyMeterIncrease;
+        npcBehavior.whichFood = 0;
+        npcBehavior.npcState = 0;
+        npcBehavior.wantstacos = false;
+        npcBehavior.needsFood = false;
+        npcBehavior.wantspizza = false;
+        npcBehavior.wantswings = false;
+    }
 }

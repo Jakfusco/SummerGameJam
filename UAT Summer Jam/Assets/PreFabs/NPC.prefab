@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 674828792591270500}
   - component: {fileID: 674828792591270507}
   - component: {fileID: 674828792591270496}
+  - component: {fileID: -3587827785246070107}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674828792591270498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.933913, y: -2.62, z: -0.77516687}
+  m_LocalPosition: {x: 70.08, y: 54.68, z: 67.96}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,6 +74,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5fb06ec1a2c4845a9a73af4ecd84ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
+  designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
+  playerScript: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394,
+    type: 3}
+  playerInteraction: {fileID: 7846402375749045273, guid: eb89aea0240e313409e4aa081e370394,
+    type: 3}
   needsFood: 0
   whichFood: 0
   wantspizza: 0
@@ -83,9 +92,6 @@ MonoBehaviour:
   needsMusic: 0
   needsNothing: 0
   npcState: 0
-  haspizza: 0
-  haswings: 0
-  hastacos: 0
   whichMusic: 0
   wantsMusic1: 0
   wantsMusic2: 0
@@ -94,13 +100,8 @@ MonoBehaviour:
   wantsConvo1: 0
   wantsConvo2: 0
   wantsConvo3: 0
-  countdownTime: 1
-  player: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394, type: 3}
   target: {fileID: 7846402375749045284, guid: eb89aea0240e313409e4aa081e370394, type: 3}
-  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
-    type: 3}
-  designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
-    type: 3}
+  readyForNeeds: 0
 --- !u!114 &674828792591270507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,11 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89987f274f230a448b7d4ca76da34095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcScript: {fileID: 674828792591270498}
-  npcBehavior: {fileID: 674828792591270500}
-  designerScript: {fileID: 674828792591270498}
+  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
   designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
     type: 3}
+  npcScript: {fileID: 674828792591270498}
+  npcBehavior: {fileID: 674828792591270500}
 --- !u!212 &674828792591270496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -167,3 +169,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3587827785246070107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674828792591270498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148bfdf11650c4d4088bb5d1b9afbd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
+  designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
+  npcScript: {fileID: 674828792591270498}
+  npcBehavior: {fileID: 674828792591270500}
+  playerScript: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394,
+    type: 3}
+  playerInteraction: {fileID: 7846402375749045273, guid: eb89aea0240e313409e4aa081e370394,
+    type: 3}
+  cdScript: {fileID: 674828792591270498}
+  cd: {fileID: 674828792591270507}
+  m_RedButton: {fileID: 4101240915555088456, guid: 58db8b2437be35443916017b2ab9f38f,
+    type: 3}
+  m_BlueButton: {fileID: 7277426119187783113, guid: 4deefef979c863349bb09172ac81c86e,
+    type: 3}
+  m_GreenButton: {fileID: 6740074789187199007, guid: f7e1e0edb4287e5468305ceed804cac8,
+    type: 3}
+  nPC: {fileID: 674828792591270498}
+  buttonParent: {fileID: 0}

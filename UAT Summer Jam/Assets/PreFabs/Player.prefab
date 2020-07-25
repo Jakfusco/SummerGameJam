@@ -101,18 +101,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfeff5ce43ae62488440b7ffa6b6e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
+  designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
+    type: 3}
   triggeringMusic: 0
   triggeringTable: 0
   foodButtons: {fileID: 0}
   mouseControls: {fileID: 0}
+  score: 0
   redButtonText: {fileID: 0}
   blueButtonText: {fileID: 0}
   greenButtonText: {fileID: 0}
   npcScript: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc,
     type: 3}
   npcBehavior: {fileID: 0}
-  designerScript: {fileID: 0}
-  designerChanges: {fileID: 0}
+  haspizza: 0
+  haswings: 0
+  hastacos: 0
 --- !u!1 &7846402376112756426
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb5d27386219df4e85c5d805d1dadb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseSensitivity: 250
   designerScript: {fileID: 0}
   designerChanges: {fileID: 0}
   playerBody: {fileID: 7846402375749045284}

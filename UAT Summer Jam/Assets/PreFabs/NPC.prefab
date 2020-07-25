@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 674828792591270500}
   - component: {fileID: 674828792591270507}
   - component: {fileID: 674828792591270496}
+  - component: {fileID: -5241292081753811007}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -87,9 +88,6 @@ MonoBehaviour:
   needsMusic: 0
   needsNothing: 0
   npcState: 0
-  haspizza: 0
-  haswings: 0
-  hastacos: 0
   whichMusic: 0
   wantsMusic1: 0
   wantsMusic2: 0
@@ -98,7 +96,8 @@ MonoBehaviour:
   wantsConvo1: 0
   wantsConvo2: 0
   wantsConvo3: 0
-  player: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394, type: 3}
+  target: {fileID: 0}
+  readyForNeeds: 0
 --- !u!114 &674828792591270507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +114,6 @@ MonoBehaviour:
     type: 3}
   designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
     type: 3}
-  countdownTime: 0
   npcScript: {fileID: 674828792591270498}
   npcBehavior: {fileID: 674828792591270500}
 --- !u!212 &674828792591270496
@@ -167,3 +165,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5241292081753811007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674828792591270498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2ecb188fba20541adcd328014750ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gameWalkPoints: []

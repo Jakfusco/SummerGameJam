@@ -5,20 +5,29 @@ using UnityEngine.AI;
 
 public class WalkingPoints : MonoBehaviour
 {
-    public Transform[] walkPoints;
+    public List<Transform> walkPoints = new List<Transform>();
+    //public Transform[] walkingPoints = new Transform[56];
     private int destination = 0;
     private NavMeshAgent NPC;
 
-    private float timeToWait = 5f;
+    public GameObject[] gameWalkPoints;
+
+    private float timeToWait = 25f;
     private float currentTimeWaited = 0f;
     private bool timerStarted = false;
 
     private void Start()
     {
-        //walkPoints = GameObject.FindGameObjectsWithTag("PatrolPoints");
         NPC = GetComponent<NavMeshAgent>();
-        //InvokeRepeating("GotoNextPosition", 0, 5);
+
         NPC.autoBraking = true;
+
+        GameObject[] walkPointObjects = GameObject.FindGameObjectsWithTag("PatrolPoints");
+
+        foreach(GameObject walkPoint in walkPointObjects)
+        {
+            walkPoints.Add(walkPoint.transform);
+        }
 
         timerStarted = true;
     }
@@ -39,11 +48,11 @@ public class WalkingPoints : MonoBehaviour
 
     void GotoNextPosition()
     {
-        if (walkPoints.Length == 0)
+        if (walkPoints.Count == 0)
             return;
         NPC.destination = walkPoints[destination].position;
 
-        destination = Random.Range(0, walkPoints.Length);
+        destination = Random.Range(0, walkPoints.Count);
         Debug.Log(destination);
     }
 
@@ -51,7 +60,5 @@ public class WalkingPoints : MonoBehaviour
     {
         timerStarted = true;
         currentTimeWaited = 0f;
-
-        //Debug.Log("Timer has reset");
     }
 }

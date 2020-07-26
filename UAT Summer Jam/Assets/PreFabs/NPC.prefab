@@ -105,16 +105,17 @@ MonoBehaviour:
   popUps:
   - {fileID: 21300000, guid: 577ce42c174b75544a341427e2e90587, type: 3}
   - {fileID: 21300000, guid: bf01b70c28f04b948abaf69858b3de3a, type: 3}
-  - {fileID: 21300000, guid: 6fb404beefaed5849bacf08d9dfd4937, type: 3}
+  - {fileID: 21300000, guid: 755932048dfc9f54b9d3ab8144887da2, type: 3}
   - {fileID: 21300000, guid: 5551531996fad9b4ab80fd3e2bc31173, type: 3}
   - {fileID: 21300000, guid: 4d872a7ea4084a64fbb6f5478484a06a, type: 3}
   - {fileID: 21300000, guid: b9ce826cc87d806459b8493717228677, type: 3}
-  - {fileID: 21300000, guid: 097b939dbebc06947aa9c15477554972, type: 3}
-  - {fileID: 21300000, guid: 27aaf236c2bb63d44b30ff29e0101b31, type: 3}
-  - {fileID: 21300000, guid: c926bc1b0141f1a4392b36dfb1076c4c, type: 3}
+  - {fileID: 21300000, guid: c9bf7189f5dd9d840bc21e560b72a643, type: 3}
+  - {fileID: 21300000, guid: 00cf966224ceea04c9e12831f571ca17, type: 3}
+  - {fileID: 21300000, guid: 78766e1cd35db4b4e9c4365aae93339e, type: 3}
+  - {fileID: 21300000, guid: d773de4c128d120478fdd09f026d6688, type: 3}
+  - {fileID: 21300000, guid: d773de4c128d120478fdd09f026d6688, type: 3}
   nPC: {fileID: 674828792591270498}
   popUpObject: {fileID: 7095966174325238225}
-  popUpSprite: {fileID: 0}
 --- !u!114 &674828792591270507
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ public class NPCBehavior : MonoBehaviour
        npcState =  Random.Range(1,4);
         if (npcState == 1)
         {
+            AudioManager.instance.Play("Annoyed");
             needsFood = true;
             whichFood = Random.Range(1, 4);
             if (whichFood == 1)
@@ -61,6 +62,7 @@ public class NPCBehavior : MonoBehaviour
         }
         if (npcState == 2)
         {
+            AudioManager.instance.Play("Annoyed");
             needsConvo = true;
             whichConvo = Random.Range(1, 4);
             if (whichConvo == 1)
@@ -78,6 +80,7 @@ public class NPCBehavior : MonoBehaviour
         }
         if (npcState == 3)
         {
+            AudioManager.instance.Play("Annoyed");
             needsMusic = true;
             whichMusic = Random.Range(1, 4);
             if (whichMusic == 1)
@@ -105,6 +108,7 @@ public class NPCBehavior : MonoBehaviour
         designerChanges = designerScript.GetComponent<DesignerChanges>();
         playerInteraction = playerScript.GetComponent<PlayerInteraction>();
         InvokeRepeating("PartyMeter", 0, designerChanges.partyMeterDecreaseSpeed);
+        target = GameObject.Find("Player").transform;
         
         
     }
@@ -122,7 +126,8 @@ public class NPCBehavior : MonoBehaviour
     {
         if (target != null)
         {
-            transform.LookAt(target);
+            Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+            transform.LookAt(targetPosition);
         }
     }
     public void MusicBoxExecutePerfect()

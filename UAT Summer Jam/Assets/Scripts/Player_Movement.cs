@@ -19,6 +19,8 @@ public class Player_Movement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    bool playingSound;
+
 
     // Update is called once per frame
     void Update()
@@ -43,5 +45,17 @@ public class Player_Movement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        //Adds walking audio whenever there is movement input. Wasn't sure how to directly hook it into the axis movement, but it works for now.
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && playingSound == false)
+        {
+            AudioManager.instance.Play("Walk");
+            playingSound = true;
+        }
+        else if (!Input.anyKey && playingSound == true)
+        {
+            playingSound = false;
+            AudioManager.instance.Stop("Walk");
+        }
     }
 }

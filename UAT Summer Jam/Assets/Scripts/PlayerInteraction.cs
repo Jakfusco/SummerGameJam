@@ -29,7 +29,7 @@ public class PlayerInteraction : MonoBehaviour
     void Start()
     {
         mouseControls = GetComponent<Mouse_Look>();
-        npcBehavior = npcScript.GetComponent<NPCBehavior>();
+        //npcBehavior = npcScript.GetComponent<NPCBehavior>();
         designerChanges = designerScript.GetComponent<DesignerChanges>();
         buttons = buttonScript.GetComponent<Buttons>();
        // npcScript = GameObject.Find("NPC");

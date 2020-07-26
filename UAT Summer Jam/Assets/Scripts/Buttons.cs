@@ -33,7 +33,7 @@ public class Buttons : MonoBehaviour
     }
     private void Start()
     {
-
+        designerScript = GameObject.Find("Designer Changes");
         playerInteraction = playerScript.GetComponent<PlayerInteraction>();
         npcBehavior = npcScript.GetComponent<NPCBehavior>();
         cd = cdScript.GetComponent<Countdown>();
@@ -56,23 +56,28 @@ public class Buttons : MonoBehaviour
         if (npcBehavior.needsFood && npcBehavior.wantspizza && playerInteraction.haspizza == true && playerTrigger)
         {
             PerfectFood();
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (npcBehavior.needsFood && npcBehavior.wantswings && playerInteraction.haswings == true && playerTrigger || npcBehavior.needsFood && npcBehavior.wantstacos && playerInteraction.hastacos == true && playerTrigger)
         {
             OkFood();
+            AudioManager.instance.Play("FoodDelivered");
         }
 
         if (npcBehavior.wantsConvo1 == true && playerInteraction.triggering)
         {
             PerfectConversation();
+            AudioManager.instance.Play("Talk");
         }
         if (npcBehavior.wantsConvo2 == true && playerInteraction.triggering)
         {
             OkConversation();
+            AudioManager.instance.Play("Talk");
         }
         if (npcBehavior.wantsConvo3 == true && playerInteraction.triggering)
         {
             OkConversation();
+            AudioManager.instance.Play("Talk");
         }
 
     }
@@ -82,23 +87,28 @@ public class Buttons : MonoBehaviour
         if (npcBehavior.needsFood && npcBehavior.wantswings && playerInteraction.haswings == true && playerTrigger)
         {
             PerfectFood();
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (npcBehavior.needsFood && npcBehavior.wantspizza && playerInteraction.haspizza == true && playerTrigger || npcBehavior.needsFood && npcBehavior.wantstacos && playerInteraction.hastacos == true && playerTrigger)
         {
             OkFood();
+            AudioManager.instance.Play("FoodDelivered");
         }
 
         if (npcBehavior.wantsConvo1 == true)
         {
             OkConversation();
+            AudioManager.instance.Play("Talk");
         }
         if (npcBehavior.wantsConvo2 == true)
         {
             PerfectConversation();
+            AudioManager.instance.Play("Talk");
         }
         if (npcBehavior.wantsConvo3 == true)
         {
             OkConversation();
+            AudioManager.instance.Play("Talk");
         }
 
     }
@@ -108,24 +118,29 @@ public class Buttons : MonoBehaviour
         if (npcBehavior.needsFood && npcBehavior.wantstacos && playerInteraction.hastacos == true && playerTrigger)
         {
             PerfectFood();
+            AudioManager.instance.Play("FoodDelivered");
         }
         if (npcBehavior.needsFood && npcBehavior.wantswings && playerInteraction.haswings == true && playerTrigger || npcBehavior.needsFood && npcBehavior.wantspizza && playerInteraction.haspizza == true && playerTrigger)
         {
             OkFood();
+            AudioManager.instance.Play("FoodDelivered");
         }
 
         if (npcBehavior.wantsConvo1)
         {
             OkConversation();
+            AudioManager.instance.Play("Talk");
         }
         if (npcBehavior.wantsConvo2)
         {
             OkConversation();
+            AudioManager.instance.Play("Talk");
         }
         if (npcBehavior.wantsConvo3)
         {
 
             PerfectConversation();
+            AudioManager.instance.Play("Talk");
         }
 
     }

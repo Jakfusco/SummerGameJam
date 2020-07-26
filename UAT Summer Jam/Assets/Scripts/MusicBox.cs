@@ -41,16 +41,25 @@ public class MusicBox : MonoBehaviour
         {
             // perfect
             MusicBoxExecutePrePerfect();
+            AudioManager.instance.Play("HipHop");
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Stop("Rock");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true)
         {
             // ok
             MusicBoxExecutePreOk();
+            AudioManager.instance.Play("HipHop");
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Stop("Rock");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true)
         {
             // ok
             MusicBoxExecutePreOk();
+            AudioManager.instance.Play("HipHop");
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Stop("Rock");
         }
     }
     void BlueButtonClick()
@@ -59,16 +68,25 @@ public class MusicBox : MonoBehaviour
         {
             // perfect
             MusicBoxExecutePrePerfect();
+            AudioManager.instance.Stop("HipHop");
+            AudioManager.instance.Play("Techno");
+            AudioManager.instance.Stop("Rock");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true)
         {
             //ok
             MusicBoxExecutePreOk();
+            AudioManager.instance.Stop("HipHop");
+            AudioManager.instance.Play("Techno");
+            AudioManager.instance.Stop("Rock");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true)
         {
             // ok
             MusicBoxExecutePreOk();
+            AudioManager.instance.Stop("HipHop");
+            AudioManager.instance.Play("Techno");
+            AudioManager.instance.Stop("Rock");
         }
     }
     void GreenButtonClick()
@@ -77,16 +95,25 @@ public class MusicBox : MonoBehaviour
         {
             //  perrfect
             MusicBoxExecutePrePerfect();
+            AudioManager.instance.Stop("HipHop");
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Play("Rock");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true)
         {
             // ok
             MusicBoxExecutePreOk();
+            AudioManager.instance.Stop("HipHop");
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Play("Rock");
         }
         if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true)
         {
             //  ok
             MusicBoxExecutePreOk();
+            AudioManager.instance.Stop("HipHop");
+            AudioManager.instance.Stop("Techno");
+            AudioManager.instance.Play("Rock");
         }
     }
     public void MusicBoxExecutePrePerfect()

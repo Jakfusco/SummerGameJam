@@ -25,6 +25,7 @@ public class Table : MonoBehaviour
         if (playerInteraction.triggeringTable == true)
         {
             playerInteraction.haspizza = true;
+            AudioManager.instance.Play("Pickup");
         }
         else
         {
@@ -36,6 +37,7 @@ public class Table : MonoBehaviour
         if (playerInteraction.triggeringTable == true)
         {
             playerInteraction.haswings = true;
+            AudioManager.instance.Play("Pickup");
         }
         else
         {
@@ -47,6 +49,7 @@ public class Table : MonoBehaviour
         if (playerInteraction.triggeringTable == true)
         {
             playerInteraction.hastacos = true;
+            AudioManager.instance.Play("Pickup");
         }
         else
         {

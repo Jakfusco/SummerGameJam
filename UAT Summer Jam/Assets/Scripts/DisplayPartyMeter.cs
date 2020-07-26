@@ -7,18 +7,23 @@ public class DisplayPartyMeter : MonoBehaviour
 {
     public GameObject designerScript;
     public DesignerChanges designerChanges;
-    public float displayPartyMeter;
-    public int max;
-    public int current;
+    public Slider partyMeterSlider;
     // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        designerScript = GameObject.Find("Designer Changes");
+        designerChanges = designerScript.GetComponent<DesignerChanges>();
+    }
+    private void Update()
+    {
+        SetPartyMeter(designerChanges.partyMeter);
+    }
+    public void SetPartyMeter (float partyMeter)
+    {
+        partyMeter = designerChanges.partyMeter;
+        partyMeterSlider.value = partyMeter;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        displayPartyMeter = designerChanges.partyMeter;
-    }
+   
 }

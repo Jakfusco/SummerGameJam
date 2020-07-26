@@ -86,6 +86,9 @@ public class NPCBehavior : MonoBehaviour
             AudioManager.instance.Play("Annoyed");
             needsMusic = true;
             whichMusic = Random.Range(1, 4);
+            MusicBox musicBox = GameObject.Find("Music Box").GetComponent<MusicBox>();
+            musicBox.npcScript = this.gameObject;
+            musicBox.npcBehavior = this;
             if (whichMusic == 1)
             {
                 wantsMusic1 = true;

@@ -7,11 +7,14 @@ public class NPCSpawning : MonoBehaviour
     public GameObject designerScript;
     public DesignerChanges designerChanges;
     public GameObject nPC;
-    public Sprite[] partyGuests;
+    public GameObject[] partyGuests;
     public int guestRandomizer;
     public GameObject[] guest;
     public Transform parent;
     public GameObject Clone;
+
+    public List<Transform> spawnPointList;
+    public float spawnDistance;
 
 
     void Start()
@@ -30,9 +33,15 @@ public class NPCSpawning : MonoBehaviour
     {
         //Instantiate(nPC);
 
-        Clone = (Instantiate(nPC, parent)) as GameObject;
+        Transform spawnPoint = spawnPointList[Random.Range(0, spawnPointList.Count)];
+
+        Vector3 randomVector = Random.insideUnitSphere;
+        Vector3 newPosition = spawnPoint.position + (randomVector * spawnDistance);
+
         int i = Random.Range(0, partyGuests.Length);
-        Clone.GetComponent<SpriteRenderer>().sprite = partyGuests[i];
+        Clone = (Instantiate(partyGuests[i], new Vector3(newPosition.x, spawnPoint.position.y, newPosition.z), Quaternion.identity)) as GameObject;
+
+       // Clone.GetComponent<SpriteRenderer>().sprite = partyGuests[i];
 
     }
 }

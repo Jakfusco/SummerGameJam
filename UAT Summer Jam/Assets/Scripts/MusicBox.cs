@@ -23,7 +23,11 @@ public class MusicBox : MonoBehaviour
         m_BlueButton.onClick.AddListener(BlueButtonClick);
         m_GreenButton.onClick.AddListener(GreenButtonClick);
         playerInteraction = playerScript.GetComponent<PlayerInteraction>();
-        npcBehavior = npcScript.GetComponent<NPCBehavior>();
+
+        if (npcBehavior != null)
+        {
+            npcBehavior = npcScript.GetComponent<NPCBehavior>();
+        }
         npcSpawning = spawningScript.GetComponent<NPCSpawning>();
         designerChanges = designerScript.GetComponent<DesignerChanges>();
         //npcScript = GameObject.Find("NPC");
@@ -37,7 +41,7 @@ public class MusicBox : MonoBehaviour
     }
     void RedButtonClick()
     {
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             // perfect
             MusicBoxExecutePrePerfect();
@@ -45,7 +49,7 @@ public class MusicBox : MonoBehaviour
             AudioManager.instance.Stop("Techno");
             AudioManager.instance.Stop("Rock");
         }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             // ok
             MusicBoxExecutePreOk();
@@ -53,77 +57,92 @@ public class MusicBox : MonoBehaviour
             AudioManager.instance.Stop("Techno");
             AudioManager.instance.Stop("Rock");
         }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             // ok
             MusicBoxExecutePreOk();
             AudioManager.instance.Play("HipHop");
             AudioManager.instance.Stop("Techno");
             AudioManager.instance.Stop("Rock");
+
         }
     }
     void BlueButtonClick()
     {
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             // perfect
             MusicBoxExecutePrePerfect();
             AudioManager.instance.Stop("HipHop");
             AudioManager.instance.Play("Techno");
             AudioManager.instance.Stop("Rock");
+
         }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             //ok
             MusicBoxExecutePreOk();
             AudioManager.instance.Stop("HipHop");
             AudioManager.instance.Play("Techno");
             AudioManager.instance.Stop("Rock");
+
         }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             // ok
             MusicBoxExecutePreOk();
             AudioManager.instance.Stop("HipHop");
             AudioManager.instance.Play("Techno");
             AudioManager.instance.Stop("Rock");
+
         }
     }
     void GreenButtonClick()
     {
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic3 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             //  perrfect
             MusicBoxExecutePrePerfect();
             AudioManager.instance.Stop("HipHop");
             AudioManager.instance.Stop("Techno");
             AudioManager.instance.Play("Rock");
+
         }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic2 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             // ok
             MusicBoxExecutePreOk();
             AudioManager.instance.Stop("HipHop");
             AudioManager.instance.Stop("Techno");
             AudioManager.instance.Play("Rock");
+
         }
-        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true)
+        if (npcBehavior.npcState == 3 && npcBehavior.wantsMusic1 && playerInteraction.triggeringMusic == true && npcBehavior != null && npcScript != null)
         {
             //  ok
             MusicBoxExecutePreOk();
             AudioManager.instance.Stop("HipHop");
             AudioManager.instance.Stop("Techno");
             AudioManager.instance.Play("Rock");
+
         }
     }
     public void MusicBoxExecutePrePerfect()
     {
         BroadcastMessage("MusicBoxExecutePerfect", SendMessageOptions.DontRequireReceiver);
+        foreach (NPCBehavior npcBehavior in FindObjectsOfType<NPCBehavior>())
+        {
+            npcBehavior.MusicBoxExecutePerfect();
+        }
         designerChanges.score += designerChanges.perfectScoreIncrease;
         designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
     }
     public void MusicBoxExecutePreOk()
     {
+        foreach (NPCBehavior npcBehavior in FindObjectsOfType<NPCBehavior>())
+        {
+            npcBehavior.MusicBoxExecuteOk();
+        }
         BroadcastMessage("MusicBoxExecuteOk", SendMessageOptions.DontRequireReceiver);
         designerChanges.score += designerChanges.okScoreIncrease;
         designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;

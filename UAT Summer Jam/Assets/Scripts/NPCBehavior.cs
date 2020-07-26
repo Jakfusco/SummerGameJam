@@ -165,6 +165,7 @@ public class NPCBehavior : MonoBehaviour
             {
                 popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[7];
             }
+
         }
         if (npcState == 3)
         {
@@ -182,9 +183,13 @@ public class NPCBehavior : MonoBehaviour
                 popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[2];
             }
 
-            }
-        
         }
+        if (needsFood == false && needsConvo == false && needsMusic == false)
+        {
+            popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[10];
+        }
+
+    }
     public void MusicBoxExecutePerfect()
     {
         whichMusic = 0;

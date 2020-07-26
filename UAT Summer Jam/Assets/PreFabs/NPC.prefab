@@ -32,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 70.08, y: 54.68, z: 67.96}
   m_LocalScale: {x: 1, y: 1, z: 2}
-  m_Children: []
+  m_Children:
+  - {fileID: 1083329780909162255}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,16 +82,16 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   playerInteraction: {fileID: 7846402375749045273, guid: eb89aea0240e313409e4aa081e370394,
     type: 3}
-  needsFood: 0
-  whichFood: 0
-  wantspizza: 0
+  needsFood: 1
+  whichFood: 1
+  wantspizza: 1
   wantswings: 0
   wantstacos: 0
   wantsnoFood: 0
   needsConvo: 0
   needsMusic: 0
   needsNothing: 0
-  npcState: 0
+  npcState: 1
   whichMusic: 0
   wantsMusic1: 0
   wantsMusic2: 0
@@ -101,6 +102,19 @@ MonoBehaviour:
   wantsConvo3: 0
   target: {fileID: 7846402375749045284, guid: eb89aea0240e313409e4aa081e370394, type: 3}
   readyForNeeds: 0
+  popUps:
+  - {fileID: 21300000, guid: 577ce42c174b75544a341427e2e90587, type: 3}
+  - {fileID: 21300000, guid: bf01b70c28f04b948abaf69858b3de3a, type: 3}
+  - {fileID: 21300000, guid: 6fb404beefaed5849bacf08d9dfd4937, type: 3}
+  - {fileID: 21300000, guid: 5551531996fad9b4ab80fd3e2bc31173, type: 3}
+  - {fileID: 21300000, guid: 4d872a7ea4084a64fbb6f5478484a06a, type: 3}
+  - {fileID: 21300000, guid: b9ce826cc87d806459b8493717228677, type: 3}
+  - {fileID: 21300000, guid: 097b939dbebc06947aa9c15477554972, type: 3}
+  - {fileID: 21300000, guid: 27aaf236c2bb63d44b30ff29e0101b31, type: 3}
+  - {fileID: 21300000, guid: c926bc1b0141f1a4392b36dfb1076c4c, type: 3}
+  nPC: {fileID: 674828792591270498}
+  popUpObject: {fileID: 7095966174325238225}
+  popUpSprite: {fileID: 0}
 --- !u!114 &674828792591270507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e7b0421d5c3f4b44f860d0e31c2a01c4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,7 +179,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &-3587827785246070107
@@ -199,3 +213,83 @@ MonoBehaviour:
   nPC: {fileID: 674828792591270498}
   buttonParent: {fileID: 0}
   playerTrigger: 0
+--- !u!1 &7095966174325238225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083329780909162255}
+  - component: {fileID: 3539605903979434696}
+  m_Layer: 0
+  m_Name: Popup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1083329780909162255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095966174325238225}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.08, y: 3.51, z: 0.06858826}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_Children: []
+  m_Father: {fileID: 674828792591270502}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!212 &3539605903979434696
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095966174325238225}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.12, y: 5.12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

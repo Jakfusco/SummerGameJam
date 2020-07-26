@@ -31,8 +31,11 @@ public class NPCBehavior : MonoBehaviour
     public bool wantsConvo3;
     public Transform target;
     public bool readyForNeeds;
-   // public int partyMeter = 100;
-   // public int partyMeterDecrease = 1;
+    // public int partyMeter = 100;
+    // public int partyMeterDecrease = 1;
+    public Sprite[] popUps;
+    public GameObject nPC;
+    public GameObject popUpObject;
 
     public void Awake()
     {
@@ -129,7 +132,59 @@ public class NPCBehavior : MonoBehaviour
             Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
             transform.LookAt(targetPosition);
         }
-    }
+        if (npcState == 1)
+        {
+
+            if (whichFood == 1)
+            {
+
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[3];
+            }
+            if (whichFood == 2)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[5];
+            }
+            if (whichFood == 3)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[4];
+            }
+        }
+
+        if (npcState == 2)
+        {
+
+            if (whichConvo == 1)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[6];
+            }
+            if (whichConvo == 2)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[8];
+            }
+            if (whichConvo == 3)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[7];
+            }
+        }
+        if (npcState == 3)
+        {
+
+            if (whichMusic == 1)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[1];
+            }
+            if (whichMusic == 2)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[0];
+            }
+            if (whichMusic == 3)
+            {
+                popUpObject.GetComponent<SpriteRenderer>().sprite = popUps[2];
+            }
+
+            }
+        
+        }
     public void MusicBoxExecutePerfect()
     {
         whichMusic = 0;

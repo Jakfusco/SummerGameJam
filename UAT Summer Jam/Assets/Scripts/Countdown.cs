@@ -18,6 +18,7 @@ public class Countdown : MonoBehaviour
         designerChanges = designerScript.GetComponent<DesignerChanges>();
         //countdownTime = designerChanges.guestNeedsInterval;
         InvokeRepeating("GuestNeeds", 0, designerChanges.guestSpawnRate);
+        //npcScript = GameObject.Find("NPC");
     }
     void GuestNeeds()
     {
@@ -27,5 +28,21 @@ public class Countdown : MonoBehaviour
             Debug.Log("This is totally working");
         }
     }
+    //void OnTriggerExit(Collider other)
+    //{
+    //    if (other.tag == "NPC")
+    //    {
+    //        npcScript = null;
+    //        npcBehavior = null;
+    //    }
+    //}
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "NPC")
+    //    {
+    //        npcBehavior = other.gameObject.GetComponent<NPCBehavior>();
+    //        npcScript = other.gameObject;
+    //    }
+    //}
 
 }

@@ -14,6 +14,7 @@ public class Table : MonoBehaviour
         m_BlueButton.onClick.AddListener(BlueButtonClick);
         m_GreenButton.onClick.AddListener(GreenButtonClick);
         playerInteraction = playerScript.GetComponent<PlayerInteraction>();
+ 
     }
     void Update()
     {
@@ -25,6 +26,10 @@ public class Table : MonoBehaviour
         {
             playerInteraction.haspizza = true;
         }
+        else
+        {
+            return;
+        }
     }
     void BlueButtonClick()  
     {
@@ -32,12 +37,20 @@ public class Table : MonoBehaviour
         {
             playerInteraction.haswings = true;
         }
+        else
+        {
+            return;
+        }
     }
     void GreenButtonClick()
     {
         if (playerInteraction.triggeringTable == true)
         {
             playerInteraction.hastacos = true;
+        }
+        else
+        {
+            return;
         }
     }
 }

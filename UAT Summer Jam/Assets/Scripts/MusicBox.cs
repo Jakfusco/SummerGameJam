@@ -26,7 +26,7 @@ public class MusicBox : MonoBehaviour
         npcBehavior = npcScript.GetComponent<NPCBehavior>();
         npcSpawning = spawningScript.GetComponent<NPCSpawning>();
         designerChanges = designerScript.GetComponent<DesignerChanges>();
-
+        //npcScript = GameObject.Find("NPC");
         npcSpawning.guest = GameObject.FindGameObjectsWithTag("NPC");
     }
 
@@ -101,4 +101,20 @@ public class MusicBox : MonoBehaviour
         designerChanges.score += designerChanges.okScoreIncrease;
         designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
     }
-}
+    //void OnTriggerExit(Collider other)
+    //{
+    //    if (other.tag == "NPC")
+    //    {
+    //        npcScript = null;
+    //        npcBehavior = null;
+    //    }
+    //}
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "NPC")
+    //    {
+    //        npcBehavior = other.gameObject.GetComponent<NPCBehavior>();
+    //        npcScript = other.gameObject;
+    //    }
+    //}
+    }

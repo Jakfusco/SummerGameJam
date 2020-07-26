@@ -120,65 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &99267333
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 99267335}
-  - component: {fileID: 99267334}
-  m_Layer: 0
-  m_Name: Buttons
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &99267334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99267333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148bfdf11650c4d4088bb5d1b9afbd37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  designerScript: {fileID: 1179753083}
-  designerChanges: {fileID: 1179753084}
-  npcScript: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc,
-    type: 3}
-  npcBehavior: {fileID: 674828792591270500, guid: a48b990e432cf8f42a25a3ffe39c6abc,
-    type: 3}
-  playerScript: {fileID: 175312027}
-  playerInteraction: {fileID: 7846402375749045273, guid: eb89aea0240e313409e4aa081e370394,
-    type: 3}
-  cdScript: {fileID: 279774276}
-  cd: {fileID: 279774277}
-  m_RedButton: {fileID: 726772627}
-  m_BlueButton: {fileID: 1701321959}
-  m_GreenButton: {fileID: 2133143664}
-  nPC: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc, type: 3}
-  buttonParent: {fileID: 1777352375}
---- !u!4 &99267335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99267333}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -79.30575, y: -53.203556, z: -70.78302}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &119123545
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +212,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119123545}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &150218935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150218937}
+  - component: {fileID: 150218936}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &150218936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150218935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148bfdf11650c4d4088bb5d1b9afbd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designerScript: {fileID: 1179753083}
+  designerChanges: {fileID: 1179753084}
+  npcScript: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc,
+    type: 3}
+  npcBehavior: {fileID: 674828792591270500, guid: a48b990e432cf8f42a25a3ffe39c6abc,
+    type: 3}
+  playerScript: {fileID: 175312027}
+  playerInteraction: {fileID: 175312032}
+  cdScript: {fileID: 279774276}
+  cd: {fileID: 279774277}
+  m_RedButton: {fileID: 726772627}
+  m_BlueButton: {fileID: 1701321959}
+  m_GreenButton: {fileID: 2133143664}
+  nPC: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc, type: 3}
+  buttonParent: {fileID: 1777352375}
+  playerTrigger: 0
+--- !u!4 &150218937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150218935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.631478, y: 13.922969, z: 17.32434}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &175312027
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,18 +376,17 @@ MonoBehaviour:
   designerChanges: {fileID: 1179753084}
   triggeringMusic: 0
   triggeringTable: 0
+  triggering: 0
   foodButtons: {fileID: 1777352375}
   mouseControls: {fileID: 0}
   score: 0
   redButtonText: {fileID: 2054311767}
   blueButtonText: {fileID: 180763862}
   greenButtonText: {fileID: 252986855}
-  npcScript: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc,
-    type: 3}
-  npcBehavior: {fileID: 674828792591270500, guid: a48b990e432cf8f42a25a3ffe39c6abc,
-    type: 3}
-  buttonScript: {fileID: 99267333}
-  buttons: {fileID: 99267334}
+  npcScript: {fileID: 0}
+  npcBehavior: {fileID: 0}
+  buttonScript: {fileID: 150218935}
+  buttons: {fileID: 150218936}
   haspizza: 0
   haswings: 0
   hastacos: 0

@@ -1,4 +1,4 @@
-﻿using Facebook.Unity;
+﻿
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,12 +31,17 @@ public class NPCBehavior : MonoBehaviour
     public bool wantsConvo3;
     public Transform target;
     public bool readyForNeeds;
+   // public int partyMeter = 100;
+   // public int partyMeterDecrease = 1;
 
-
+    public void Awake()
+    {
+        playerScript = GameObject.Find("Player");
+    }
     public void RandomState()
     {
         //change to 1-3 for full launch
-       npcState =  Random.Range(2,4);
+       npcState =  Random.Range(1,4);
         if (npcState == 1)
         {
             needsFood = true;
@@ -96,16 +101,20 @@ public class NPCBehavior : MonoBehaviour
     }
     private void Start()
     {
+        designerScript = GameObject.Find("Designer Changes");
         designerChanges = designerScript.GetComponent<DesignerChanges>();
         playerInteraction = playerScript.GetComponent<PlayerInteraction>();
+        InvokeRepeating("PartyMeter", 0, designerChanges.partyMeterDecreaseSpeed);
+        
         
     }
     public void PartyMeter()
     {
-        if (npcState == 1 || npcState == 2 || npcState == 3)
+        if (needsFood || needsConvo || needsMusic)
         {
             
-            designerChanges.partyMeter -= designerChanges.partyMeterDecreaseSpeed;
+           // partyMeter -= partyMeterDecrease;
+            designerChanges.partyMeter -= designerChanges.partyMeterDecreaseRate;
             Debug.Log("Party Decrease");
         }
     }
@@ -136,50 +145,52 @@ public class NPCBehavior : MonoBehaviour
         wantsMusic3 = false;
 
     }
-    public void PerfectConversation()
-    {
-        designerChanges.score += designerChanges.perfectScoreIncrease;
-        designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
-        whichConvo = 0;
-        npcState = 0;
-        needsConvo = false;
-        wantsConvo3 = false;
-        wantsConvo1 = false;
-        wantsConvo2 = false;
-        Debug.Log("PerfectButtonIsWorking");
-    }
-    public void OkConversation()
-    {
-        designerChanges.score += designerChanges.okScoreIncrease;
-        designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
-        whichConvo = 0;
-        npcState = 0;
-        needsConvo = false;
-        wantsConvo1 = false;
-        wantsConvo3 = false;
-        wantsConvo2 = false;
-        Debug.Log("OKButtonIsWorking");
-    }
-    public void PerfectFood()
-    {
-        designerChanges.score += designerChanges.perfectScoreIncrease;
-        designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
-        whichFood = 0;
-        npcState = 0;
-        wantstacos = false;
-        needsFood = false;
-        wantspizza = false;
-        wantswings = false;
-    }
-    public void OkFood()
-    {
-        designerChanges.score += designerChanges.okScoreIncrease;
-        designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
-        whichFood = 0;
-        npcState = 0;
-        wantstacos = false;
-        needsFood = false;
-        wantspizza = false;
-        wantswings = false;
-    }
+    //public void PerfectConversation()
+    //{
+    //    designerChanges.score += designerChanges.perfectScoreIncrease;
+    //    designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
+    //    whichConvo = 0;
+    //    npcState = 0;
+    //    needsConvo = false;
+    //    wantsConvo3 = false;
+    //    wantsConvo1 = false;
+    //    wantsConvo2 = false;
+    //    Debug.Log("PerfectButtonIsWorking");
+    //}
+    //public void OkConversation()
+    //{
+    //    designerChanges.score += designerChanges.okScoreIncrease;
+    //    designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
+    //    whichConvo = 0;
+    //    npcState = 0;
+    //    needsConvo = false;
+    //    wantsConvo1 = false;
+    //    wantsConvo3 = false;
+    //    wantsConvo2 = false;
+    //    Debug.Log("OKButtonIsWorking");
+    //}
+    //public void PerfectFood()
+    //{
+    //    designerChanges.score += designerChanges.perfectScoreIncrease;
+    //    designerChanges.partyMeter += designerChanges.perfectPartyMeterIncrease;
+    //    whichFood = 0;
+    //    npcState = 0;
+    //    wantstacos = false;
+    //    needsFood = false;
+    //    wantspizza = false;
+    //    wantswings = false;
+    //    Debug.Log("PerfectButtonIsWorking");
+    //}
+    //public void OkFood()
+    //{
+    //    designerChanges.score += designerChanges.okScoreIncrease;
+    //    designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
+    //    whichFood = 0;
+    //    npcState = 0;
+    //    wantstacos = false;
+    //    needsFood = false;
+    //    wantspizza = false;
+    //    wantswings = false;
+    //    Debug.Log("OKButtonIsWorking");
+    //}
 }

@@ -11,7 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     public bool triggeringMusic;
     public bool triggeringTable;
     private GameObject triggeringNpc;
-    private bool triggering;
+    public bool triggering;
     public GameObject foodButtons;
     public Mouse_Look mouseControls;
     public int score = 0;
@@ -32,6 +32,7 @@ public class PlayerInteraction : MonoBehaviour
         npcBehavior = npcScript.GetComponent<NPCBehavior>();
         designerChanges = designerScript.GetComponent<DesignerChanges>();
         buttons = buttonScript.GetComponent<Buttons>();
+       // npcScript = GameObject.Find("NPC");
     }
 
     void Update()
@@ -52,6 +53,10 @@ public class PlayerInteraction : MonoBehaviour
             // buttons.buttonParent.SetActive(false);
             canvas.GetComponent<Canvas>().enabled = false;
         }
+        if (npcBehavior == null)
+        {
+            return;
+        }
 
     }
     void OnTriggerEnter (Collider other)
@@ -63,6 +68,9 @@ public class PlayerInteraction : MonoBehaviour
             redButtonText.text = designerChanges.redButtonFoodText;
             blueButtonText.text = designerChanges.blueButtonFoodText;
             greenButtonText.text = designerChanges.greenButtonFoodText;
+            buttons.nPC = other.gameObject;
+            npcBehavior = other.gameObject.GetComponent<NPCBehavior>();
+            npcScript = other.gameObject;
         }
         if (other.tag == "NPC" && npcBehavior.needsConvo == true || other.tag == "NPC" && npcBehavior.npcState == 2)
         {
@@ -95,11 +103,15 @@ public class PlayerInteraction : MonoBehaviour
         {
             triggering = false;
             triggeringNpc = null;
+            npcScript = null;
+            buttons.nPC = null;
+            npcBehavior = null;
         }
         if (other.tag == "Table")
         {
             triggeringTable = false;
             triggeringNpc = null;
+            
         }
         if (other.tag == "Music")
         {

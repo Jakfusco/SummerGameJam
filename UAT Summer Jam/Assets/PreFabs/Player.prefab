@@ -116,9 +116,12 @@ MonoBehaviour:
   npcScript: {fileID: 674828792591270498, guid: a48b990e432cf8f42a25a3ffe39c6abc,
     type: 3}
   npcBehavior: {fileID: 0}
+  buttonScript: {fileID: 0}
+  buttons: {fileID: 0}
   haspizza: 0
   haswings: 0
   hastacos: 0
+  canvas: {fileID: 0}
 --- !u!1 &7846402376112756426
 GameObject:
   m_ObjectHideFlags: 0

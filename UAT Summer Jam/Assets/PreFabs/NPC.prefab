@@ -78,8 +78,7 @@ MonoBehaviour:
     type: 3}
   designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
     type: 3}
-  playerScript: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394,
-    type: 3}
+  playerScript: {fileID: 0}
   playerInteraction: {fileID: 7846402375749045273, guid: eb89aea0240e313409e4aa081e370394,
     type: 3}
   needsFood: 0
@@ -181,14 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148bfdf11650c4d4088bb5d1b9afbd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designerScript: {fileID: 7258634745319645331, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
-    type: 3}
+  designerScript: {fileID: 0}
   designerChanges: {fileID: 7258634745319645332, guid: 7bbf5fb7d5a408942a6bd32d840bf7b9,
     type: 3}
   npcScript: {fileID: 674828792591270498}
   npcBehavior: {fileID: 674828792591270500}
-  playerScript: {fileID: 7846402375749045282, guid: eb89aea0240e313409e4aa081e370394,
-    type: 3}
+  playerScript: {fileID: 0}
   playerInteraction: {fileID: 7846402375749045273, guid: eb89aea0240e313409e4aa081e370394,
     type: 3}
   cdScript: {fileID: 674828792591270498}
@@ -201,3 +198,4 @@ MonoBehaviour:
     type: 3}
   nPC: {fileID: 674828792591270498}
   buttonParent: {fileID: 0}
+  playerTrigger: 0

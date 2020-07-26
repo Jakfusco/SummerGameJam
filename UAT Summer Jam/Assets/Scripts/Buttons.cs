@@ -17,6 +17,7 @@ public class Buttons : MonoBehaviour
     public Button m_RedButton, m_BlueButton, m_GreenButton;
     public GameObject nPC;
     public GameObject buttonParent;
+    public bool playerTrigger;
     // public Sprite[] partyGuests;
     // public GameObject[] guests;
     // public int guestRandomizer;
@@ -27,6 +28,8 @@ public class Buttons : MonoBehaviour
         m_BlueButton = GameObject.Find("BlueOption").GetComponent<Button>();
         m_GreenButton = GameObject.Find("GreenOption").GetComponent<Button>();
         buttonParent = GameObject.Find("NPC Food Buttons");
+        playerScript = GameObject.Find("Player");
+       // npcScript = GameObject.Find("NPC");
     }
     private void Start()
     {
@@ -50,24 +53,24 @@ public class Buttons : MonoBehaviour
     public void RedButtonClick()
     {
         //Debug.Log("you have clicked red");
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && playerInteraction.haspizza == true)
+        if (npcBehavior.needsFood && npcBehavior.wantspizza && playerInteraction.haspizza == true && playerTrigger)
         {
             PerfectFood();
         }
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && playerInteraction.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && playerInteraction.hastacos == true)
+        if (npcBehavior.needsFood && npcBehavior.wantswings && playerInteraction.haswings == true && playerTrigger || npcBehavior.needsFood && npcBehavior.wantstacos && playerInteraction.hastacos == true && playerTrigger)
         {
             OkFood();
         }
 
-        if (npcBehavior.wantsConvo1 == true)
+        if (npcBehavior.wantsConvo1 == true && playerInteraction.triggering)
         {
             PerfectConversation();
         }
-        if (npcBehavior.wantsConvo2 == true)
+        if (npcBehavior.wantsConvo2 == true && playerInteraction.triggering)
         {
             OkConversation();
         }
-        if (npcBehavior.wantsConvo3 == true)
+        if (npcBehavior.wantsConvo3 == true && playerInteraction.triggering)
         {
             OkConversation();
         }
@@ -76,11 +79,11 @@ public class Buttons : MonoBehaviour
     public void BlueButtonClick()
     {
         //Debug.Log("you have clicked blue");
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && playerInteraction.haswings == true)
+        if (npcBehavior.needsFood && npcBehavior.wantswings && playerInteraction.haswings == true && playerTrigger)
         {
             PerfectFood();
         }
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && playerInteraction.haspizza == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && playerInteraction.hastacos == true)
+        if (npcBehavior.needsFood && npcBehavior.wantspizza && playerInteraction.haspizza == true && playerTrigger || npcBehavior.needsFood && npcBehavior.wantstacos && playerInteraction.hastacos == true && playerTrigger)
         {
             OkFood();
         }
@@ -102,11 +105,11 @@ public class Buttons : MonoBehaviour
     public void GreenButtonClick()
     {
         //Debug.Log("you have clicked green");
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 3 && playerInteraction.hastacos == true)
+        if (npcBehavior.needsFood && npcBehavior.wantstacos && playerInteraction.hastacos == true && playerTrigger)
         {
             PerfectFood();
         }
-        if (npcBehavior.npcState == 1 && npcBehavior.whichFood == 2 && playerInteraction.haswings == true || npcBehavior.npcState == 1 && npcBehavior.whichFood == 1 && playerInteraction.haspizza == true)
+        if (npcBehavior.needsFood && npcBehavior.wantswings && playerInteraction.haswings == true && playerTrigger || npcBehavior.needsFood && npcBehavior.wantspizza && playerInteraction.haspizza == true && playerTrigger)
         {
             OkFood();
         }
@@ -170,16 +173,32 @@ public class Buttons : MonoBehaviour
         npcBehavior.needsFood = false;
         npcBehavior.wantspizza = false;
         npcBehavior.wantswings = false;
+        Debug.Log("PerfectButtonIsWorking");
     }
     public void OkFood()
     {
         designerChanges.score += designerChanges.okScoreIncrease;
-        designerChanges.partyMeter +=designerChanges.okPartyMeterIncrease;
+        designerChanges.partyMeter += designerChanges.okPartyMeterIncrease;
         npcBehavior.whichFood = 0;
         npcBehavior.npcState = 0;
         npcBehavior.wantstacos = false;
         npcBehavior.needsFood = false;
         npcBehavior.wantspizza = false;
         npcBehavior.wantswings = false;
+        Debug.Log("OKButtonIsWorking");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerTrigger = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerTrigger = false;
+        }
     }
 }
